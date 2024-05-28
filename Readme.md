@@ -2,6 +2,7 @@
 
 * Студент: [Екатерина Шалмина](https://up.htmlacademy.ru/htmlcss/40/user/2462395).
 * Наставник: [Дмитрий Осадченко](https://htmlacademy.ru/profile/dimaos).
+* Сайт: [Мой проект Седона](https://katishalmina.github.io/2462395-sedona-40/).
 
 ---
 
