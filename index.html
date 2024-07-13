@@ -134,7 +134,7 @@
             <p class="section-subtitle">Укажите предполагаемые даты поездки,<br> и мы покажем вам лучшие предложения
               гостиниц в Седоне</p>
           </div>
-          <button class="button brown-button modal-button" type="button">Поиск гостиницы в Седоне</button>
+          <button class="button brown-button hotel-search-button" type="button">Поиск гостиницы в Седоне</button>
         </section>
         <section class="subscription subscription-decorated" data-test="subscribe">
           <div class="subscription-container">
@@ -201,42 +201,38 @@
         </div>
       </footer>
     </div>
-    <div class="modal-container">
+    <div class="modal-container modal-container-closed">
       <div class="modal-search">
         <section class="modal-content">
           <h2 class="section-title modal-title">Поиск гостиницы в Седоне</h2>
           <form class="modal-form" action="https://echo.htmlacademy.ru/" method="get">
-            <fieldset class="modal-group modal-date-group">
-              <label class="modal-date-label" for="arrival-date">Дата заезда:</label>
-              <input class="modal-input modal-date-input" type="text" name="arrival" id="arrival-date" placeholder="27 апреля 2020" required>
-              <p class="modal-date-hint arrival-hint">Мы не можем отправить вас в прошлое.</p>
-            </fieldset>
-            <fieldset class="modal-group modal-date-group">
-              <label class="modal-date-label" for="departure-date">Дата выезда:</label>
-              <input class="modal-input modal-date-input" type="text" name="departure" id="departure-date"
-              placeholder="1 сентября 2023" required>
-              <p class="modal-date-hint departure-hint">На эти даты есть свободные номера. Пока есть.</p>
-            </fieldset>
-            <fieldset class="modal-group modal-person-group">
-              <label class="modal-adults-label " for="adult-number">Взрослые:</label>
+            <label class="modal-label" for="arrival-date"><span>Дата заезда:</span></label>
+            <input class="modal-input modal-date-input" type="text" name="arrival" id="arrival-date" placeholder="Укажите дату" value="27 апреля 2020" required>
+            <p class="modal-date-hint arrival-hint">Мы не можем отправить вас в прошлое.</p>
+            <label class="modal-label" for="departure-date"><span>Дата выезда:</span></label>
+            <input class="modal-input modal-date-input" type="text" name="departure" id="departure-date"
+              placeholder="Укажите дату" value="1 сентября 2023" required>
+            <p class="modal-date-hint departure-hint">На эти даты есть свободные номера. Пока есть.</p>
+            <label class="modal-label" for="adult-number">Взрослые:</label>
+            <div class="person-number-group">
+              <button class="modal-number-button button-minus" type="button"></button>
+              <input class="modal-input modal-person-input" type="number" name="adults" id="adult-number" placeholder="1" value="2" required>
+              <button class="modal-number-button button-plus" type="button"></button>
+            </div>
+            <div class="children-group-container">
+              <label class="modal-label" for="child-number">Дети:</label>
+                <span class="tooltip">
+                  <button class="tooltip-toggle" type="button" aria-labelledby="tooltip-label-date">
+                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="2" height="12" fill="none" viewBox="0 0 2 12"><path fill="#fff" fill-rule="evenodd" d="M0 0h2v2H0V0Zm2 12H0V3h2v9Z" clip-rule="evenodd"/></svg>
+                  </button>
+                  <span class="tooltip-text" role="tooltip" id="tooltip-label-date">Укажите количество детей, которые будут с вами, возраст которых от 6 до 18 лет. Дети до 6 лет размещаются бесплатно.</span>
+                </span>
               <div class="person-number-group">
-                <button class="modal-person-button button-minus" type="button"></button>
-                <input class="modal-input modal-person-input" type="number" name="adults" id="adult-number" placeholder="2" required>
-                <button class="modal-person-button button-plus" type="button"></button>
+                <button class="modal-number-button button-minus" type="button"></button>
+                <input class="modal-input modal-person-input" type="number" name="children" id="child-number" placeholder="0" value="2">
+                <button class="modal-number-button button-plus" type="button"></button>
               </div>
-              <label class="modal-children-label" for="child-number">Дети:</label>
-              <span class="tooltip">
-                <button class="tooltip-toggle" type="button">
-                  <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="2" height="12" fill="none" viewBox="0 0 2 12"><path fill="#fff" fill-rule="evenodd" d="M0 0h2v2H0V0Zm2 12H0V3h2v9Z" clip-rule="evenodd"/></svg>
-                </button>
-                <span class="tooltip-text">Укажите количество детей, которые будут с вами, возраст которых от 6 до 18 лет. Дети до 6 лет размещаются бесплатно.</span>
-              </span>
-              <div class="person-number-group">
-                <button class="modal-person-button button-minus" type="button"></button>
-                <input class="modal-input modal-person-input" type="number" name="children" id="child-number" placeholder="2">
-                <button class="modal-person-button button-plus" type="button"></button>
-              </div>
-            </fieldset>
+            </div>
             <button class="button modal-button-search" type="submit">Найти</button>
           </form>
         </section>

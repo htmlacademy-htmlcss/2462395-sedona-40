@@ -57,7 +57,8 @@ body {
 
 .button {
   display: block;
-  padding: 8px 50px;
+  width: 232px;
+  padding: 8px 15px;
   font-family: "PT Sans", sans-serif;
   font-size: 20px;
   line-height: 36px;
@@ -97,8 +98,7 @@ body {
 }
 
 .small-button {
-  padding-right: 20px;
-  padding-left: 20px;
+  width: 140px;
   font-size: 16px;
   line-height: 20px;
 }
@@ -130,8 +130,6 @@ body {
 }
 
 .in-favourites-button {
-  padding-left: 18px;
-  padding-right: 18px;
   color: #ffffff;
   background-color: #7db54f;
 }
@@ -303,15 +301,13 @@ body {
   line-height: 10px;
   color: #ffffff;
   background-color: #7db54f;
-  border-radius: 50%;
+  border-radius: 100vw;
 }
 
 .go-here-button {
   align-self: center;
   width: 160px;
   margin-left: auto;
-  padding-right: 34px;
-  padding-left: 34px;
 }
 
 .main-container {
@@ -547,7 +543,7 @@ body {
   margin-bottom: 54px;
 }
 
-.modal-button {
+.hotel-search-button {
   width: 376px;
   margin: 0 auto;
 }
@@ -708,6 +704,10 @@ body {
   background-color: rgba(242, 242, 242, 0.8);
 }
 
+/* .modal-container-closed {
+  display: none;
+} */
+
 .modal-search {
   position: relative;
   width: 717px;
@@ -719,33 +719,24 @@ body {
   color: #000000;
   background-color: #ffffff;
   border-radius: 30px;
-}
-
-.modal-content {
-  display: grid;
-  align-items: center;
-  grid-template-columns: 137px 440px;
-  grid-template-rows: 1fr auto;
+  box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 0.15);
 }
 
 .modal-title {
-  grid-column: 1 / 3;
-  justify-self: start;
+  text-align: left;
   margin-bottom: 64px;
+  padding-right: 40px;
 }
 
-.modal-group {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-.modal-date-label {
-  grid-column: 1 / 2;
+.modal-form {
+  display: grid;
+  grid-template-columns: 137px 197px 242px;
+  grid-template-rows: auto 48px auto 48px auto 48px auto;
+  align-items: center;
 }
 
 .modal-input {
-  grid-column: 2 / 3;
+  grid-column: 2 / 4;
   font-family: inherit;
   font-size: 18px;
   line-height: 24px;
@@ -754,6 +745,11 @@ body {
   background-color: #f2f2f2;
   border: none;
   border-radius: 4px;
+  transition: background-color 0.4s ease;
+}
+
+.modal-input:hover {
+  background-color: #e6e6e6;
 }
 
 .modal-date-input {
@@ -765,14 +761,15 @@ body {
 }
 
 .modal-input::placeholder {
-  color: #000000;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .modal-date-hint {
-  grid-column: 2 / 3;
+  grid-column: 2 / 4;
+  align-self: start;
   margin: 0;
-  margin-left: 20px;
-  margin-bottom: 23px;
+  padding-top: 4px;
+  padding-left: 20px;
   font-size: 16px;
   line-height: 21px;
   font-weight: 400;
@@ -782,31 +779,23 @@ body {
   color: #ff5757;
 }
 
-.modal-person-group {
-  position: relative;
+.children-group-container {
+  grid-column: 3 / 4;
   display: flex;
   align-items: center;
-  margin-bottom: 48px;
-}
-
-.modal-adults-label {
-  grid-column: 1 / 2;
 }
 
 .person-number-group {
-  grid-column: 2 / 3;
   display: flex;
 }
 
 .modal-person-input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 31px;
   margin: 0;
-  padding: 14px 10px;
+  padding: 14px 4px;
   font-size: 18px;
   line-height: 20px;
+  text-align: center;
   border-radius: 0;
 }
 
@@ -816,7 +805,7 @@ body {
   margin: 0;
 }
 
-.modal-person-button {
+.modal-number-button {
   position: relative;
   display: block;
   width: 40px;
@@ -831,7 +820,11 @@ body {
   border-radius: 4px 0 0 4px;
 }
 
-.modal-person-button::before {
+.button-plus {
+  border-radius: 0 4px 4px 0;
+}
+
+.modal-number-button::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -839,7 +832,7 @@ body {
   transform: translate(-50%, -50%);
   width: 14px;
   height: 2px;
-  background-color: rgba(117, 97, 87, 0.3);
+  background-color: #d6d0cd;
 }
 
 .button-plus::after {
@@ -850,33 +843,25 @@ body {
   transform: translate(-50%, -50%) rotate(90deg);
   width: 14px;
   height: 2px;
-  background-color: rgba(117, 97, 87, 0.3);
+  background-color: #d6d0cd;
 }
 
-.modal-person-button:hover + .modal-person-button::before {
-  background-color: #000000;
+.modal-number-button:hover::before,
+.modal-number-button:focus-visible::before {
+  background-image: #000000;
 }
 
-.modal-person-button:hover + .button-plus::after {
-  background-color: #000000;
-}
-
-.button-plus {
-  border-radius: 0 4px 4px 0;
-}
-
-.modal-children-label {
-  margin: 82px;
+.modal-number-button:active {
+  opacity: 0.3;
 }
 
 .tooltip {
-  position: absolute;
-  top: 82px;
-  left: 340px;
+  position: relative;
+  margin-left: 3px;
+  margin-right: auto;
 }
 
 .tooltip-toggle {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -906,7 +891,7 @@ body {
 
 .tooltip-text {
   position: absolute;
-  top: 41px;
+  top: 48px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -921,12 +906,30 @@ body {
   border-radius: 10px;
 }
 
+.tooltip-text::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background-color: #333333;
+}
+
+.tooltip-toggle:hover + .tooltip-text,
 .tooltip-toggle:focus-within + .tooltip-text {
   display: block;
 }
 
 .modal-button-search {
-  grid-column: 1 / 3;
+  grid-column: 1 / 4;
+  grid-row: 7 / 8;
+  width: 577px;
+  line-height: 24px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border-radius: 10px;
 }
 
 .modal-button-close {
@@ -941,7 +944,8 @@ body {
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease,
+              opacity 0.4s ease;
 }
 
 .modal-button-close::before {
@@ -969,12 +973,12 @@ body {
 }
 
 .modal-button-close:hover,
-.modal-button-close:active {
+.modal-button-close:focus-visible {
   background-color: #e6e6e6;
 }
 
-.modal-button-close:active + .modal-button-close::before,
-.modal-button-close:active + .modal-button-close::after {
+.modal-button-close:active {
+  background-color: #e6e6e6;
   opacity: 0.3;
 }
 
@@ -1102,11 +1106,11 @@ body {
   height: 20px;
   background-color: #ffffff;
   border-radius: 4px;
-  transition: background-color 0.4s ease;
+  transition: opacity 0.4s ease;
 }
 
 .filter-choice-label {
-  transition: color 0.4s ease;
+  transition: opacity 0.4s ease;
 }
 
 .filter-choice-label:hover {
@@ -1130,19 +1134,19 @@ body {
 }
 
 .filter-choice-input:disabled:hover + .filter-choice-mark {
-  opacity: 0.1;
+  opacity: 1;
 }
 
 .filter-choice-input:disabled:active + .filter-choice-mark {
-  opacity: 0.1;
+  opacity: 1;
 }
 
 .filter-choice-input:disabled:hover ~ .filter-choice-label {
-  opacity: 0.1;
+  opacity: 1;
 }
 
 .filter-choice-input:disabled:active ~ .filter-choice-label {
-  opacity: 0.1;
+  opacity: 1;
 }
 
 .filter-choice-input[type="checkbox"]:checked + .filter-choice-mark::before {
@@ -1167,11 +1171,11 @@ body {
 }
 
 .filter-choice-input[type="checkbox"]:disabled:hover + .filter-choice-mark::before {
-  opacity: 0.1;
+  opacity: 1;
 }
 
 .filter-choice-input[type="checkbox"]:disabled:active + .filter-choice-mark::before {
-  opacity: 0.1;
+  opacity: 1;
 }
 
 .filter-choice-mark-radio {
@@ -1224,6 +1228,7 @@ body {
   color: #000000;
   background-color: #f2f2f2;
   border: none;
+  transition: background-color 0.4s ease;
 }
 
 .range-input:hover,
@@ -1313,8 +1318,7 @@ body {
 }
 
 .filter-button {
-  padding-right: 50px;
-  padding-left: 50px;
+  width: 191px;
 }
 
 .transparent-button {
@@ -1383,6 +1387,7 @@ body {
   position: absolute;
   right: 20px;
   color: #000000;
+  pointer-events: none;
 }
 
 .catalog-select-control:hover {
@@ -1556,6 +1561,38 @@ body {
   min-width: 60px;
   height: 60px;
   padding: 6px;
+  font-size: 20px;
+  line-height: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #82b3d3;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition:
+    color 0.4s ease,
+    background-color 0.4s ease;
+}
+
+.pagination-button:hover {
+  color: #ffffff;
+  background-color: #68a2ca;
+}
+
+.pagination-button:focus-visible {
+  color: #ffffff;
+  background-color: #68a2ca;
+}
+
+.pagination-button:active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #82b3d3;
+}
+
+.pagination-button:disabled {
+  color: #ffffff;
+  background-color: #e5e5e5;
+  pointer-events: none;
 }
 
 .pagination-current {
