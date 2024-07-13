@@ -848,7 +848,7 @@ body {
 
 .modal-number-button:hover::before,
 .modal-number-button:focus-visible::before {
-  background-image: #000000;
+  background-color: #000000;
 }
 
 .modal-number-button:active {
