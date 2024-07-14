@@ -704,9 +704,9 @@ body {
   background-color: rgba(242, 242, 242, 0.8);
 }
 
-/* .modal-container-closed {
+.modal-container-closed {
   display: none;
-} */
+}
 
 .modal-search {
   position: relative;
@@ -833,6 +833,7 @@ body {
   width: 14px;
   height: 2px;
   background-color: #d6d0cd;
+  transition: background-color 0.4s ease;
 }
 
 .button-plus::after {
@@ -844,6 +845,7 @@ body {
   width: 14px;
   height: 2px;
   background-color: #d6d0cd;
+  transition: background-color 0.4s ease;
 }
 
 .modal-number-button:hover::before,
@@ -851,8 +853,14 @@ body {
   background-color: #000000;
 }
 
-.modal-number-button:active {
-  opacity: 0.3;
+.button-plus:hover::after,
+.button-plus:focus-visible::after {
+  background-color: #000000;
+}
+
+.modal-number-button:active::before,
+.button-plus:active::after {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .tooltip {
@@ -1170,6 +1178,11 @@ body {
   opacity: 0.3;
 }
 
+/* .filter-choice-input[type="checkbox"]:disabled {
+  pointer-events: none;
+  opacity: 0.1;
+} */
+
 .filter-choice-input[type="checkbox"]:disabled:hover + .filter-choice-mark::before {
   opacity: 1;
 }
@@ -1205,11 +1218,11 @@ body {
 }
 
 .filter-choice-input[type="radio"]:disabled:hover + .filter-choice-mark-radio::before {
-  opacity: 1;
+  pointer-events: none;
 }
 
 .filter-choice-input[type="radio"]:disabled:active + .filter-choice-mark-radio::before {
-  opacity: 1;
+  opacity: 0.1;
 }
 
 .range-input-container {
