@@ -25,13 +25,19 @@ html {
 }
 
 body {
-  min-width: 1200px;
+  min-width: 1240px;
   margin: 0;
   font-family: "PT Sans", sans-serif;
   font-size: 18px;
   line-height: 21px;
   color: #333333;
   background-color: #f2f2f2;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .page-container {
@@ -753,10 +759,12 @@ body {
 }
 
 .modal-form {
+  position: relative;
   display: grid;
   grid-template-columns: 137px 197px 242px;
-  grid-template-rows: auto 48px auto 48px auto 48px auto;
+  gap: 48px 0;
   align-items: center;
+  width: 577px;
 }
 
 .modal-input {
@@ -778,6 +786,7 @@ body {
 
 .modal-date-input {
   width: 440px;
+  height: 48px;
   padding: 12px 20px;
   background-image: url("../images/icons/calendar-icon.svg");
   background-repeat: no-repeat;
@@ -789,11 +798,11 @@ body {
 }
 
 .modal-date-hint {
-  grid-column: 2 / 4;
-  align-self: start;
+  position: absolute;
+  top: 52px;
+  left: 157px;
+  max-height: 48px;
   margin: 0;
-  padding-top: 4px;
-  padding-left: 20px;
   font-size: 16px;
   line-height: 21px;
   font-weight: 400;
@@ -801,6 +810,10 @@ body {
 
 .arrival-hint {
   color: #ff5757;
+}
+
+.departure-hint {
+  top: 148px;
 }
 
 .children-group-container {
@@ -815,12 +828,14 @@ body {
 
 .modal-person-input {
   width: 31px;
+  height: 48px;
   margin: 0;
   padding: 14px 4px;
   font-size: 18px;
   line-height: 20px;
   text-align: center;
   border-radius: 0;
+  appearance: textfield;
 }
 
 .modal-person-input::-webkit-outer-spin-button,
@@ -834,7 +849,7 @@ body {
   position: relative;
   display: block;
   width: 40px;
-  height: 48px;
+  /* height: 48px; */
   padding: 0;
   background-color: #f2f2f2;
   border: none;
@@ -957,7 +972,6 @@ body {
 
 .modal-button-search {
   grid-column: 1 / 4;
-  grid-row: 7 / 8;
   width: 577px;
   line-height: 24px;
   padding-top: 18px;
@@ -1050,13 +1064,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 33px;
   height: 31px;
-  margin-left: -10px;
   font-size: 16px;
   line-height: 21px;
   color: inherit;
   text-decoration: none;
+}
+
+.breadcrumbs-link:has(svg) {
+  margin: 0 -10px;
+  padding: 0 10px;
 }
 
 .breadcrumbs-link:not(.breadcrumbs-link-current):hover {
@@ -1070,8 +1087,8 @@ body {
 .breadcrumbs-item::after {
   content: "";
   position: absolute;
-  left: 23px;
   top: 11px;
+  right: -18px;
   width: 8px;
   height: 10px;
   background-image: url("../images/icons/breadcrumbs-arrow-icon.svg");
@@ -1244,6 +1261,7 @@ body {
   background-color: #f2f2f2;
   border: none;
   transition: background-color 0.4s ease;
+  appearance: textfield;
 }
 
 .range-input:hover,
@@ -1291,8 +1309,8 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0%;
-  right: 0%;
+  left: 0;
+  right: 0;
   height: 4px;
   background-color: #ffffff;
 }
@@ -1400,6 +1418,7 @@ body {
   font-size: 18px;
   line-height: 21px;
   color: #333333;
+  background-color: #ffffff;
   border: 2px solid #e5e5e5;
   border-radius: 4px;
   -webkit-appearance: none;
@@ -1511,6 +1530,7 @@ body {
   display: block;
   grid-column: 1 / -1;
   object-fit: cover;
+  max-width: 300px;
   background-color: #796e6c;
 }
 
@@ -1641,6 +1661,7 @@ body {
 .pagination-current {
   color: #000000;
   background-color: #f2f2f2;
+  pointer-events: none;
 }
 
 .pagination-points {
