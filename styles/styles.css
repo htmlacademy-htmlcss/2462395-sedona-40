@@ -219,24 +219,12 @@ img {
   transition: color 0.4s ease;
 }
 
-.navigation-main-current::after {
+.navigation-link-current::after {
   content: "";
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 16px;
+  right: 16px;
   bottom: -1px;
-  width: 68px;
-  height: 2px;
-  background-color: #756257;
-}
-
-.navigation-catalog-current::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -1px;
-  width: 93px;
   height: 2px;
   background-color: #756257;
 }
@@ -1348,7 +1336,7 @@ img {
   display: flex;
   flex-flow: column wrap;
   gap: 32px;
-  margin-top: auto;
+  margin-top: 56px;
 }
 
 .filter-button {
@@ -1515,7 +1503,6 @@ img {
 
 .hotel-card-item {
   display: grid;
-  align-items: center;
   grid-template-columns: repeat(2, 140px);
   grid-template-rows: auto 1fr;
   gap: 16px 20px;
@@ -1581,6 +1568,7 @@ img {
 }
 
 .hotel-stars {
+  align-self: center;
   width: 106px;
   height: 17px;
   margin: 0;
